@@ -1,0 +1,117 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "Search :";
+    drun-display-format: "{name}";
+    font: "Maple Mono NF CN 12";
+    scroll-method: 1;
+}
+
+* {
+    /* The first two digits (aa) set transparency to about 65% */
+    /* Use 00 for 100% transparent or 88 for more subtle transparency */
+    bg: #11111199;
+    bg-alt: #181818ee;
+    fg: #ffffff;
+    white: #ffffff;
+    background-color: transparent;
+    text-color: @fg;
+    highlight: none;
+}
+
+window {
+    /* "real" enables the alpha channel for transparency */
+    transparency: "real";
+    width: 900px;
+    height: 480px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @white;
+    border-radius: 12px;
+}
+
+mainbox {
+    children: [inputbar, listview];
+    padding: 20px;
+    background-color: transparent;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border: 1px;
+    border-color: #333333;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 0px 20px 0px;
+    children: [prompt, entry];
+}
+
+prompt {
+    text-color: @white;
+    margin: 0px 10px 0px 0px;
+    background-color: transparent;
+}
+
+entry {
+    text-color: @white;
+    placeholder: "Type to filter";
+    placeholder-color: #555555;
+    background-color: transparent;
+}
+
+listview {
+    columns: 6;
+    lines: 3;
+    fixed-columns: true;
+    fixed-height: true;
+    cycle: true;
+    scrollbar: false;
+    layout: vertical;
+    flow: horizontal;
+    spacing: 0px;
+    border: 0px;
+    background-color: transparent;
+}
+
+element {
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px;
+    border-color: transparent;
+    orientation: vertical;
+    background-color: transparent;
+}
+
+element normal.normal,
+element normal.urgent,
+element normal.active,
+element alternate.normal,
+element alternate.urgent,
+element alternate.active {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal,
+element selected.urgent,
+element selected.active {
+    /* Gives the selected icon a solid-ish background to pop */
+    background-color: #ffffff22;
+    border-color: @white;
+    text-color: @fg;
+}
+
+element-icon {
+    size: 64px;
+    horizontal-align: 0.5;
+    background-color: transparent;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    margin: 5px 0px 0px 0px;
+    font: "Maple Mono NF CN 10";
+    background-color: transparent;
+    text-color: inherit;
+}
