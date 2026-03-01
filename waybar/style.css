@@ -1,0 +1,70 @@
+/* This forces ALL text and icons in every module to be white */
+#workspaces,
+#window,
+#idle_inhibitor,
+#clock,
+#custom-weather,
+#memory,
+#backlight,
+#custom-updates,
+#network,
+#pulseaudio,
+#battery,
+#custom-hostname,
+#tray {
+    background-color: #1e1e1e;
+    color: #ffffff; /* Global white for all modules */
+    border-radius: 10px;
+    padding: 2px 15px;
+    margin: 0 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Fix for the "barely visible" numbers on the left */
+#workspaces button {
+    color: #ffffff;      /* Force inactive numbers/icons to be white */
+    opacity: 0.6;        /* Give them a slight fade so you can tell they aren't active */
+    padding: 0 5px;
+    box-shadow: none;    /* Remove any default shadows */
+    text-shadow: none;
+}
+
+#workspaces button.active {
+    color: #ffffff;      /* Active workspace is pure white */
+    opacity: 1.0;        /* Full brightness */
+    font-weight: 800;    /* Make the active number/icon thicker */
+}
+
+/* Force icons inside modules to ignore their specific color rules */
+#idle_inhibitor, 
+#memory, 
+#custom-updates, 
+#network, 
+#pulseaudio, 
+#battery {
+    color: #ffffff; 
+}
+
+window#waybar {
+    background: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    transition-property: none;
+    animation: none;
+}
+
+/* This is the secret culprit: sometimes the "main" container 
+   inside the window has the white background */
+#waybar > box {
+    background: transparent;
+    background-color: transparent;
+    border: none;
+}
+
+/* Ensure no hidden styling is being applied to the bar's internal boxes */
+.modules-left, .modules-center, .modules-right {
+    background: transparent;
+    border: none;
+}
